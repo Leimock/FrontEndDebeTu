@@ -4,15 +4,19 @@ import { fetchAllUsers } from "../services/userServices"
 const Users = () => {
 
     const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(false)
+
 
     async function peticion() {
+        setLoading(true)
         const json = await fetchAllUsers()
         // console.log("Actualizacion")
         setUsers(json)
+        setLoading(false)
     }
 
     useEffect( () => {
-        peticion()
+        peticion() 
     }, [])
 
     useEffect( () => {
@@ -20,6 +24,9 @@ const Users = () => {
         setInterval( () => peticion() , 2000)
 
     }, [])
+
+    if (loading) return <div>Loading...</div>
+    if (!users.length) return <div>No hay usuarios</div>
 
     return (
         <>
