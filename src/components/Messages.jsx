@@ -11,15 +11,11 @@ const Messages = () => {
         const json = await fetchAllMessages()
         setMessages(json)
     }
-
+    
     useEffect( () => {
         peticion()
-    }, [])
-
-    useEffect( () => {
-
-        setInterval( () => peticion() , 2000)
-
+        const programmer = setInterval( () => peticion() , 2000)
+        return () => clearInterval(programmer)
     }, [])
 
     const handleSubmit = async (e) => {

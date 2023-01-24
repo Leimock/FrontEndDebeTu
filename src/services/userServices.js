@@ -14,13 +14,8 @@ async function addNewUser(data) {
             },
             body: JSON.stringify(data)
         })
-        if (!response.ok) {
-            console.log('Error al hacer la inserción')
-        }
 
-        const newUser = await response.json()
-
-        return newUser
+        return response
 }
 
 export {fetchAllUsers, addNewUser}

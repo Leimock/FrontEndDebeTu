@@ -8,21 +8,16 @@ const Users = () => {
 
 
     async function peticion() {
-        setLoading(true)
         const json = await fetchAllUsers()
-        // console.log("Actualizacion")
         setUsers(json)
-        setLoading(false)
     }
-
+    
     useEffect( () => {
-        peticion() 
-    }, [])
-
-    useEffect( () => {
-
-        setInterval( () => peticion() , 2000)
-
+        setLoading(true)
+        peticion()
+        setLoading(false)
+        const programmer = setInterval( () => peticion() , 2000)
+        return () => clearInterval(programmer)
     }, [])
 
     if (loading) return <div>Loading...</div>
@@ -33,8 +28,8 @@ const Users = () => {
             <h1>Lista de usuarios</h1>
             <div>{users.map(user => 
                 <div key={user._id}>
-                    <div>- {user.userName}</div>
-                    <div>- {user.userEmail}</div>
+                    <div>- {user.name}</div>
+                    <div>- {user.email}</div>
                     <br />
                 </div>
             )}

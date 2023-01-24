@@ -1,5 +1,6 @@
-import { useState,useEffect } from "react"
-import { addNewUser, fetchAllUsers } from "../services/userServices"
+import { useState } from "react"
+import { addNewUser } from "../services/userServices"
+import {useNavigate} from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -7,24 +8,18 @@ const SignUp = () => {
     const [eml, setEml] = useState([])
     const [pass, setPass] = useState([])
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault() 
         
-        const json = await fetchAllUsers()
-        const list = JSON.stringify(json)
+        const response = await addNewUser({name: usr, email: eml, password: pass})
 
-        if (!list.includes(eml)) {
-            const newUser = await addNewUser({userName: usr, userEmail: eml, userPassword: pass})
-            console.log(newUser)
-            // messages.push(newMessage)
-            setUsr("")
-            setEml("")
-            setPass("")
-        }
-        else {
-            alert("Email ya registrado")
+        if (!response.ok) {
+            console.log('Error al hacer la inserción')
         }
 
+        navigate('/userList')
 
     }
 
