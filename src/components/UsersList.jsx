@@ -25,7 +25,7 @@ const Users = () => {
 
     return (
         <>
-            <h1>Lista de usuarios</h1>
+            <h1>Lista de usuarios ({users.length})</h1>
             <div>{users.map(user => 
                 <div key={user._id}>
                     <div>- {user.name}</div>

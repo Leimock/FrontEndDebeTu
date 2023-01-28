@@ -8,6 +8,8 @@ const NavBar = () => {
             <Link to="/chat">Chat</Link>
             <Link to="/userlist">Users</Link>
             <Link to="/signUp">SignUp</Link>
+            <Link to="/logIn">Login</Link>
+            <Link to="/myInfo">Info</Link>
         </nav>
     )
 

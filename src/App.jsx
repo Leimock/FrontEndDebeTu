@@ -5,6 +5,8 @@ import Saludo from './components/Saludo'
 import NavBar from './components/Navbar'
 import Users from './components/UsersList'
 import SignUp from './components/UserAdd'
+import Login from './components/UserLogin'
+import Info from './components/UserInfo'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/chat" element={<Messages />}></Route>
         <Route path="/userlist" element={<Users />}></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
+        <Route path="/logIn" element={<Login />}></Route>
+        <Route path="/myInfo" element={<Info />}></Route>
       </Routes>
     </BrowserRouter>
   )
