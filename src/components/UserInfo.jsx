@@ -15,26 +15,21 @@ const Info = () => {
     useEffect( () => {
         setLoading(true)
         const token = localStorage.getItem('token')
-        const email = localStorage.getItem('email')
-        peticion({token, email})
+        peticion(token)
         setLoading(false)
-        //const programmer = setInterval( () => peticion() , 2000)
-        //return () => clearInterval(programmer)
     }, [])
 
     if (loading) return <div>Loading...</div>
 
-/*<div>{users.map(user => 
-    <div key={user._id}>
-        <div>- {user.name}</div>
-        <div>- {user.email}</div>
-        <br />
-    </div>
-</div>
-)}*/
+
     return (
         <>
-            <h1>Mi información</h1>  
+            <h1>Mi información</h1>
+            <div key={users._id}>
+                <div>- {users.name}</div>
+                <div>- {users.email}</div>
+                <br />
+            </div>
         </>
     )
 }

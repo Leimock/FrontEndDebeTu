@@ -18,7 +18,6 @@ const Login = () => {
             console.log('Error al hacer login')
         } else {
             console.log(json.token)
-            localStorage.setItem("email", eml)
             localStorage.setItem("token", json.token)
         }
 
