@@ -3,7 +3,7 @@ import { showMyData } from "../services/userServices"
 
 const Info = () => {
 
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState({})
     const [loading, setLoading] = useState(false)
 
 

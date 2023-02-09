@@ -32,7 +32,7 @@ async function logIn(data) {
 }
 
 async function showMyData(data) {
-    const response = await fetch('http://localhost:3000/user',
+    const response = await fetch('http://localhost:3000/user/me',
         {
             method: 'GET',
             headers: {
