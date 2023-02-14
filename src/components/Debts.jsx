@@ -6,11 +6,6 @@ const Debts = (props) => {
 
     if (!debts.length) return 'No hay deudas'
 
-
-    function handleRemove() {
-
-    }
-
     const deleteDebt = async (id) => {
 
         const token = localStorage.getItem("token")
