@@ -9,7 +9,7 @@ const MyDebtors = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const fetchingDebtors = async () => {
-          const request = await fetch('http://localhost:3000/connection/getMyDebtors',
+          const request = await fetch(import.meta.env.VITE_BACKEND + '/connection/getMyDebtors',
           {
             method: "GET",
             headers: {
@@ -28,7 +28,7 @@ const MyDebtors = () => {
 
       const token = localStorage.getItem("token")
 
-        const response = await fetch('http://localhost:3000/connection/deleteDebt/' + idConnection,
+        const response = await fetch(import.meta.env.VITE_BACKEND + '/connection/deleteDebt/' + idConnection,
         {
             method: 'DELETE',
             headers: {
@@ -57,7 +57,7 @@ const MyDebtors = () => {
       const amount = event.target.amount.value
       const token = localStorage.getItem("token")
 
-        const response = await fetch('http://localhost:3000/connection/addDebt/' + idConnection,
+        const response = await fetch(import.meta.env.VITE_BACKEND + '/connection/addDebt/' + idConnection,
         {
             method: 'PUT',
             headers: {
@@ -77,7 +77,7 @@ const MyDebtors = () => {
         debtorsToAddDebt.debts.push({_id: data.debts[data.debts.length-1]._id, concept, amount, isPaid: data.debts[data.debts.length-1].isPaid})
         setDebtors(newDebtors)
 
-        // const request = await fetch('http://localhost:3000/connection/getMyDebtors',
+        // const request = await fetch(import.meta.env.VITE_BACKEND + '/connection/getMyDebtors',
         //   {
         //     method: "GET",
         //     headers: {
