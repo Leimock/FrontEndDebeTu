@@ -1,7 +1,6 @@
 async function fetchAllUsers() {
     const response = await fetch('http://localhost:3000/user/listAll')
-    const json = await response.json()
-    return json
+    return response
 }
 
 async function addNewUser(data) {

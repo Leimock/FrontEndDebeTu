@@ -1,25 +1,10 @@
-import { useState,useEffect } from "react"
-import { fetchAllUsers } from "../services/userServices"
+import useUsers from "../hooks/useUsers"
 
 const Users = () => {
 
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(false)
+    const {users, loading, error} = useUsers()
 
-
-    async function peticion() {
-        const json = await fetchAllUsers()
-        setUsers(json)
-    }
-    
-    useEffect( () => {
-        setLoading(true)
-        peticion()
-        setLoading(false)
-        const programmer = setInterval( () => peticion() , 2000)
-        return () => clearInterval(programmer)
-    }, [])
-
+    if (error) return <div>Error {error}</div>
     if (loading) return <div>Loading...</div>
     if (!users.length) return <div>No hay usuarios</div>
 
