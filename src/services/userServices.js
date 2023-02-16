@@ -1,11 +1,11 @@
 async function fetchAllUsers() {
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/user/listAll')
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'user/listAll')
     return response
 }
 
 async function addNewUser(data) {
 
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/user/add',
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'user/add',
         {
             method: 'POST',
             headers: {
@@ -18,7 +18,7 @@ async function addNewUser(data) {
 }
 
 async function logIn(data) {
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/auth/login',
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'auth/login',
         {
             method: 'POST',
             headers: {
@@ -31,7 +31,7 @@ async function logIn(data) {
 }
 
 async function showMyData(data) {
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/user/me',
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'user/me',
         {
             method: 'GET',
             headers: {

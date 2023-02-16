@@ -1,12 +1,12 @@
 async function fetchAllMessages() {
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/message/')
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'message/')
     const json = await response.json()
     return json
 }
 
 async function addNewMessage(data) {
 
-    const response = await fetch(import.meta.env.VITE_BACKEND + '/message/',
+    const response = await fetch(import.meta.env.VITE_BACKEND + 'message/',
         {
             method: 'POST',
             headers: {

@@ -9,7 +9,7 @@ const ConnectToCreditor = () => {
 
         const token = localStorage.getItem("token")
 
-        const response = await fetch(import.meta.env.VITE_BACKEND + '/connection/connectToCreditor/' + eml,
+        const response = await fetch(import.meta.env.VITE_BACKEND + 'connection/connectToCreditor/' + eml,
         {
             method: 'POST',
             headers: {
